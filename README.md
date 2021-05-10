@@ -73,13 +73,6 @@ Words can do harm, so to keep a safe environment for everyone content will be mo
 ##### Existing Features
 
 > - Designed with HTML, CSS, JavaScript, Python+Flask, MongoDB.
-> - Home/Landing page with 4 pages in total.
-> - Fixed navigation allows the user to easily navigate, regardless of which page visited.
-> - About section features São Paulo city.
-> - Tours section suggests tour options to users.
-> - More section has a Contact Form to allow users to request a personalized tour.
-> - Info section with emergency phone numbers, tourist guide locations and API calling returning current exchange rates. 
-> - Footer with social media links.
 
 ### Technologies Used
 
