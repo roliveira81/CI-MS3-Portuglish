@@ -1,52 +1,129 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# PORTUGLISH
 
-Welcome USER_NAME,
+[LIVE SITE ON HEROKU](https:///)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+<!-- ![Image](assets/images/mock.png) -->
 
-## Gitpod Reminders
+### Overview
+> Living abroad is quite an adventure. Expats, immigrants, globetrotters, digital nomads...whatever the definition we choose, one thing is certain: there will be lots of challenges. Other than being apart from beloved ones and starting a brand new life from scratch, one thing pervades every aspect of it  - language.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Expressing ourselves precisely, as we would in our mother tongue, can be hard or even impossible in some cases. But why not take some fun and learnings from it?
 
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI you can use:
-
-`heroku login -i`
-
-If you have Multi-Factor Authentication (MFA) enabled then use the API key that was generated for you at [Heroku](https://dashboard.heroku.com/account) as your password.
-This API key is unique and private to you so do not share it. If you accidently make it public then you can create a new one with _Regenerate API Key_.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+The idea of this project is to provide the growing community of Brazilians living in Ireland (13,640 according to the Census 2016) with a tool to bridge the gaps between English and Brazilian Portuguese, making conversations richer and more enjoyable to everyone.
 
 ---
 
-Happy coding!
+#### User Stories
+
+> - "I came to Ireland to improve my English skills and I'm still learning how to express myself in everyday situations"
+> - "I have an advanced English level and look for idioms and expressions to keep increasing my vocabulary"
+> - "I find it hard to explain some thoughts and feelings when in a conversation, some words in Portuguese seem to be irreplaceable"
+> - "I want my Irish friends and colleagues to better understand what I mean and I want to exchange culture about Brazil with them"
+> - "I'm a languages enthusiast and love to learn new things while having fun"
+
+---
+
+### UX
+
+This is a simple, easy-to-navigate and building glossary where you can filter words and expressions alphabetically, by context or sentiment. 
+
+The website targets Brazilians living in Ireland, but is also valuable to other portuguese speakers in English-speaking countries and English students willing to learn more about day-to-day language.
+
+As Brazil is a huge country and there are many different ways of speaking the same thing, the website values diversity and encourages people to give their contributions and even vote for the best translations and definitions. Images can also be used to help illustrate ideas. 
+Words can do harm, so to keep a safe environment for everyone content will be moderated. 
+
+---
+
+#### 1. Strategy
+
+> 
+>
+> ##### Project Goals:
+>
+> - 
+
+>
+> ##### Customer Goals:
+>
+> - 
+>
+#### 2. Scope
+>
+> 
+#### 3. Structure
+
+> - 
+
+
+#### 4. Skeleton
+
+> - [Wireframes](https://github.com/roliveira81/.pdf): 
+> - 
+
+#### 5. Surface
+
+> - Colours: 
+> - Typography: 
+> - Images: 
+> - Design Choices: 
+
+
+### Features
+
+##### Existing Features
+
+> - Designed with HTML, CSS, JavaScript, Python+Flask, MongoDB.
+> - Home/Landing page with 4 pages in total.
+> - Fixed navigation allows the user to easily navigate, regardless of which page visited.
+> - About section features São Paulo city.
+> - Tours section suggests tour options to users.
+> - More section has a Contact Form to allow users to request a personalized tour.
+> - Info section with emergency phone numbers, tourist guide locations and API calling returning current exchange rates. 
+> - Footer with social media links.
+
+### Technologies Used
+
+##### 1. Languages
+
+> - [HTML5](https://en.wikipedia.org/wiki/HTML5)
+> - [CSS3](https://en.wikipedia.org/wiki/CSS)
+> - [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - JavaScript was used to manipulate html elements and bring interactivity.
+> - [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - The main language was used to build the backend functionality of the web app.
+
+##### 2. DataBase
+
+> - [MongoDB](https://www.mongodb.com/) - Database technology used to store the application data.
+
+##### 3. Flask and its extensions
+
+> - [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Flask micro framework was used to build the web app using python code.
+> - [Flask-bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) - Flask bcrypt was used to has the users password before storing it in the database.
+
+##### 4. Frameworks and Libraries.
+
+> - [StartBootstrap](https://startbootstrap.com/) - The clean Bootstrap theme used as the base of the site template.
+> - [Bootstrap](https://getbootstrap.com/) - The world’s most popular front-end open source toolkit to quickly design and customize responsive mobile-first sites.
+> - [Google Fonts](https://fonts.google.com/) - I imported the Mulish font from google fonts and used it consistently across the site.
+> - [Line awesome](https://icons8.com/line-awesome) - I used different icons from Line awesome for icons in the application.
+> - [Materialize](https://materializecss.com/) - Materialize Css was used for its grid system and it's form inputs.
+> - [jQuery](https://jquery.com/) - jQuery was used to initialize materialize functions.
+
+##### 5. Workspace, version control, Repository storage
+
+> - [VSCode](https://code.visualstudio.com/) - Main workspace IDE (Integrated Development Environment).
+> - [LiveServer](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) - Launch a local development server with live reload feature for static & dynamic pages.
+> - [Git](https://git-scm.com/) - Distributed Version Control tool to store versions of files and track changes.
+> - [GitHub](https://github.com/) - A cloud-based hosting service to manage my **Git** repositories.
+> - [Heroku](https://www.heroku.com/) - A cloud-based hosting service to deploy, publish and host the application.
+
+##### 6. Other
+
+> - [Am I responsive](http://ami.responsivedesign.is/) - Am I responsive was used to taking screenshots of the page at different screen sizes.
+> - [Autoprefixer](https://autoprefixer.github.io/) Parses CSS and adds vendor prefixes.
+> - [Google Mobile-Friendly Test](https://search.google.com/test/mobile-friendly) Mobile-friendly check on site.
+> - [Website Page Test](https://www.webpagetest.org/) Runs a website speed test from multiple locations around the globe using real browsers (IE and Chrome) and at real consumer connection speeds.
+> - [Online-Spellcheck](https://www.online-spellcheck.com/) Online spelling and grammar checks.
+> - [Quick Database Diagrams](https://www.quickdatabasediagrams.com/) - I used quick database diagrams to make a digram of my database schema.
+> - [Balsamiq](https://balsamiq.com/) - Balsamiq was used to create Wireframes for the project during the initial planning stage.
+
+---
