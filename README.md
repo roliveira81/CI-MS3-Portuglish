@@ -1,15 +1,15 @@
 # PORTUGLISH
 
-[LIVE SITE ON HEROKU](https:///)
+[LIVE SITE ON HEROKU](https://portuglish-app.herokuapp.com/)
 
 <!-- ![Image](assets/images/mock.png) -->
 
 ### Overview
 > Living abroad is quite an adventure. Expats, immigrants, globetrotters, digital nomads...whatever the definition we choose, one thing is certain: there will be lots of challenges. Other than being apart from beloved ones and starting a brand new life from scratch, one thing pervades every aspect of it  - language.
 
-Expressing ourselves precisely, as we would in our mother tongue, can be hard or even impossible in some cases. But why not take some fun and learnings from it?
+> Expressing ourselves precisely, as we would in our mother tongue, can be hard or even impossible in some cases. But why not take some fun and learnings from it?
 
-The idea of this project is to provide the growing community of Brazilians living in Ireland (13,640 according to the Census 2016) with a tool to bridge the gaps between English and Brazilian Portuguese, making conversations richer and more enjoyable to everyone.
+> The idea of this project is to provide the growing community of Brazilians living in Ireland (13,640 according to the Census 2016) with a tool to bridge the gaps between English and Brazilian Portuguese, making conversations richer and more enjoyable to everyone.
 
 ---
 
@@ -25,11 +25,11 @@ The idea of this project is to provide the growing community of Brazilians livin
 
 ### UX
 
-This is a simple, easy-to-navigate and building glossary where you can filter words and expressions alphabetically, by context or sentiment. 
+> This is a simple, easy-to-navigate and building glossary where you can filter words and expressions alphabetically, by context or sentiment. 
 
-The website targets Brazilians living in Ireland, but is also valuable to other portuguese speakers in English-speaking countries and English students willing to learn more about day-to-day language.
+> The website targets Brazilians living in Ireland, but is also valuable to other portuguese speakers in English-speaking countries and English students willing to learn more about day-to-day language.
 
-As Brazil is a huge country and there are many different ways of speaking the same thing, the website values diversity and encourages people to give their contributions and even vote for the best translations and definitions. Images can also be used to help illustrate ideas. 
+> As Brazil is a huge country and there are many different ways of speaking the same thing, the website values diversity and encourages people to give their contributions and even vote for the best translations and definitions. Images can also be used to help illustrate ideas. 
 Words can do harm, so to keep a safe environment for everyone content will be moderated. 
 
 ---
@@ -57,7 +57,7 @@ Words can do harm, so to keep a safe environment for everyone content will be mo
 
 #### 4. Skeleton
 
-> - [Wireframes](https://github.com/roliveira81/.pdf): 
+> - [Wireframes](https://github.com/roliveira81/CI-MS3-Portuglish/blob/master/assets/docs/Portuglish_WF.pdf): desktop/mobile 
 > - 
 
 #### 5. Surface
@@ -118,5 +118,6 @@ Words can do harm, so to keep a safe environment for everyone content will be mo
 > - [Online-Spellcheck](https://www.online-spellcheck.com/) Online spelling and grammar checks.
 > - [Quick Database Diagrams](https://www.quickdatabasediagrams.com/) - I used quick database diagrams to make a digram of my database schema.
 > - [Balsamiq](https://balsamiq.com/) - Balsamiq was used to create Wireframes for the project during the initial planning stage.
+> - [RandomKeyGen](https://randomkeygen.com/) - Keygen Generator for app secret key.  
 
 ---
