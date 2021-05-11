@@ -1,4 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
     <h1>Home Page</h1>
+    {% for post in posts %}
+        {{ post.post_title }}<br>
+        {{ post.category_name }}<br>
+        {{ post.post_description }}<br>
+        {{ post.is_active }}<br>
+        {{ post.created_on }}<br>
+    {% endfor %}
 {% endblock %}
