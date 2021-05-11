@@ -18,7 +18,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 
 # mongo obj flask app connection
-mongo = PyMongo(app)
+mongo = PyMongo(app, ssl=True,ssl_cert_reqs='CERT_NONE')
 
 
 @app.route("/")

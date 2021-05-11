@@ -7,72 +7,116 @@
 ### Overview
 > Living abroad is quite an adventure. Expats, immigrants, globetrotters, digital nomads...whatever the definition we choose, one thing is certain: there will be lots of challenges. Other than being apart from beloved ones and starting a brand new life from scratch, one thing pervades every aspect of it  - language.
 
-> Expressing ourselves precisely, as we would in our mother tongue, can be hard or even impossible in some cases. But why not take some fun and learnings from it?
-
-> The idea of this project is to provide the growing community of Brazilians living in Ireland (13,640 according to the Census 2016) with a tool to bridge the gaps between English and Brazilian Portuguese, making conversations richer and more enjoyable to everyone.
+> Expressing ourselves precisely, as we would in our mother tongue, can be hard or even impossible in some cases. But why not take some fun and learn from it?
 
 ---
 
 #### User Stories
 
-> - "I came to Ireland to improve my English skills and I'm still learning how to express myself in everyday situations"
-> - "I have an advanced English level and look for idioms and expressions to keep increasing my vocabulary"
-> - "I find it hard to explain some thoughts and feelings when in a conversation, some words in Portuguese seem to be irreplaceable"
-> - "I want my Irish friends and colleagues to better understand what I mean and I want to exchange culture about Brazil with them"
-> - "I'm a languages enthusiast and love to learn new things while having fun"
+##### General Users
+
+> -"I came to Ireland to improve my English skills and I'm still learning how to express myself in everyday situations"
+> -"I have an advanced English level and look for idioms and expressions to keep increasing my vocabulary"
+> -"I find it hard to explain some thoughts and feelings when in a conversation, some words in Portuguese seem to be irreplaceable"
+> -"I want my Irish friends and colleagues to better understand what I mean and I want to exchange culture about Brazil with them"
+> -"I'm a languages enthusiast and love to learn new things while having fun"
+
+##### Collaborators
+
+> -“I’m interested in language/linguistics field and want to give my contributions in return to the many times I benefit from the content other people posted”
 
 ---
 
 ### UX
 
-> This is a simple, easy-to-navigate and building glossary where you can filter words and expressions alphabetically, by context or sentiment. 
-
+> This is a simple, easy-to-navigate and building glossary where you can search words and expressions by category, situation or sentiment. 
+ 
 > The website targets Brazilians living in Ireland, but is also valuable to other portuguese speakers in English-speaking countries and English students willing to learn more about day-to-day language.
-
-> As Brazil is a huge country and there are many different ways of speaking the same thing, the website values diversity and encourages people to give their contributions and even vote for the best translations and definitions. Images can also be used to help illustrate ideas. 
-Words can do harm, so to keep a safe environment for everyone content will be moderated. 
+ 
+> As Brazil is a huge country and there are many different ways of speaking the same thing, the website values diversity and encourages people to give their contributions and even vote for the best translations and definitions.
+Words can do harm, so to keep a safe environment for everyone, content will be moderated and there is a report function on every entry.
 
 ---
 
 #### 1. Strategy
 
-> 
->
+> The identity intends to be self-explanatory: the name, a combination of Portuguese and English, is a known expression (it even has an entry on Wikipedia!) and refers to the habit of mixing both languages in an attempt to express an idea. The subtitle is meant to be a funny hyperbole of the struggle many language learners go through, setting a friendly tone and clarity on what the website is about. The header image and colour code follows the Brazilian flag and brings vibrance to a very straightforward and clean template. 
+ 
+> Speaking of colours, language is not a black or white sort of thing, so I deemed it relevant to give users the option to search not only alphabetically or by word, but also by category, situation or sentiment. Ideally, there would be many possible results to each of those filters, and that’s what makes user contribution so important to content relevance and diversity. 
+
 > ##### Project Goals:
 >
-> - 
-
+> - Build a community of collaborators to grow and enrich a glossary of popular Brazilian expressions and their equivalents in English
+> - Become a reference for language learners and teachers 
+> - Promote Brazilian language and culture to English native speakers
 >
-> ##### Customer Goals:
+> ##### User Goals:
 >
-> - 
+> - Easy and intuitive search for expressions, with accurate results
+> - Learn through relevant content, based on real-life situations
+> - Use the website as a device to teach or practise the passion for languages
 >
-#### 2. Scope
+#### 2. Structure
 >
-> 
-#### 3. Structure
-
-> - 
-
-
+> - Thematic homepage, with Brazil references
+> - Search bar with categories
+> - Featured results
+> - Option to register or log-in
+> - Option to create, edit or delete a post
+> - Social media links to follow and share content
+>
+#### 3. Scope
+>
+> The idea of this project is to provide the growing community of Brazilians living in Ireland (13,640 according to the Census 2016) with a tool to bridge the gaps between English and Brazilian Portuguese, making conversations richer and more enjoyable to everyone.
+>
 #### 4. Skeleton
-
+>
 > - [Wireframes](https://github.com/roliveira81/CI-MS3-Portuglish/blob/master/assets/docs/Portuglish_WF.pdf): desktop/mobile 
-> - 
-
+> - Website with 3 main sections: header, search bar, featured results, endless scroll
+> - Fixed navigation bar (Home, About, Register) and Sign In function
+> - Footer with copyright info and Social Media icons
+>
 #### 5. Surface
-
-> - Colours: 
-> - Typography: 
-> - Images: 
-> - Design Choices: 
-
-
+>
+> For clean code purposes, I chose a Bootstrap template that perfectly matches the objectives of this website idea, with minor changes. 
+>
+> - Colours: a classy combination of Black, White and the vibrant Brazilian flag shades (Green 009c3b, Yellow ffdf00, Indigo Blue 002776)
+> - Typography: fonts are clear, comfortable to the eye and make reference to writing/publishing universes.
+> - Image: header image marks the website identity and the paper conversational balloon brings the idea of the ultimate purpose of language and the website itself.
+>
 ### Features
 
 ##### Existing Features
 
 > - Designed with HTML, CSS, JavaScript, Python+Flask, MongoDB.
+> - Search bar with categories
+> - About section
+> - New User registration page
+> - Sign-In page
+> - Create a Post page, with edit and delete functions
+> - Results page, with options to like, dislike or report entries
+> - Reference to poster on each public entry
+> - Footer with social media links
+
+### Portuglish Database Model and Schema
+
+> MongoDB is the NoSQL database technology used in the project.
+
+##### Database Model
+
+> Users
+> - The Users collection contains information about the users with one to many relationship with the Posts model for the users who created posts.
+
+> Categories
+> - The category model contains a category name which is then referenced in the posts model.
+
+> Posts
+> - The Posts model contains the information for each post.
+> - It also contains a relationship with the usermodel for the Post author field.
+> - It contains one field linking categories to posts.
+> - It contains one field linking users who have created posts.
+
+[DB schema](assets/docs/portuglish-diagram.png)
 
 ### Technologies Used
 
