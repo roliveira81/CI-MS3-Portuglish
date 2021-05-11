@@ -22,8 +22,8 @@ mongo = PyMongo(app, ssl=True,ssl_cert_reqs='CERT_NONE')
 
 
 @app.route("/")
-@app.route("/home")
-def home():
+@app.route("/index")
+def index():
     posts = mongo.db.posts.find()
     return render_template("index.html", posts=posts)
 

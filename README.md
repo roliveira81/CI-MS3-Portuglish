@@ -2,7 +2,7 @@
 
 [LIVE SITE ON HEROKU](https://portuglish-app.herokuapp.com/)
 
-<!-- ![Image](assets/images/mock.png) -->
+<!-- ![Image](static/images/mock.png) -->
 
 ### Overview
 > Living abroad is quite an adventure. Expats, immigrants, globetrotters, digital nomads...whatever the definition we choose, one thing is certain: there will be lots of challenges. Other than being apart from beloved ones and starting a brand new life from scratch, one thing pervades every aspect of it  - language.
@@ -15,15 +15,15 @@
 
 ##### General Users
 
-> -"I came to Ireland to improve my English skills and I'm still learning how to express myself in everyday situations"
-> -"I have an advanced English level and look for idioms and expressions to keep increasing my vocabulary"
-> -"I find it hard to explain some thoughts and feelings when in a conversation, some words in Portuguese seem to be irreplaceable"
-> -"I want my Irish friends and colleagues to better understand what I mean and I want to exchange culture about Brazil with them"
-> -"I'm a languages enthusiast and love to learn new things while having fun"
+> - "I came to Ireland to improve my English skills and I'm still learning how to express myself in everyday situations"
+> - "I have an advanced English level and look for idioms and expressions to keep increasing my vocabulary"
+> - "I find it hard to explain some thoughts and feelings when in a conversation, some words in Portuguese seem to be irreplaceable"
+> - "I want my Irish friends and colleagues to better understand what I mean and I want to exchange culture about Brazil with them"
+> - "I'm a languages enthusiast and love to learn new things while having fun"
 
 ##### Collaborators
 
-> -“I’m interested in language/linguistics field and want to give my contributions in return to the many times I benefit from the content other people posted”
+> - “I’m interested in language/linguistics field and want to give my contributions in return to the many times I benefit from the content other people posted”
 
 ---
 
@@ -71,7 +71,7 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 >
 #### 4. Skeleton
 >
-> - [Wireframes](https://github.com/roliveira81/CI-MS3-Portuglish/blob/master/assets/docs/Portuglish_WF.pdf): desktop/mobile 
+> - [Wireframes](https://github.com/roliveira81/CI-MS3-Portuglish/blob/master/static/docs/Portuglish_WF.pdf): desktop/mobile 
 > - Website with 3 main sections: header, search bar, featured results, endless scroll
 > - Fixed navigation bar (Home, About, Register) and Sign In function
 > - Footer with copyright info and Social Media icons
@@ -79,6 +79,7 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 #### 5. Surface
 >
 > For clean code purposes, I chose a Bootstrap template that perfectly matches the objectives of this website idea, with minor changes. 
+> [Template Documentation](https://github.com/startbootstrap/startbootstrap-clean-blog)
 >
 > - Colours: a classy combination of Black, White and the vibrant Brazilian flag shades (Green 009c3b, Yellow ffdf00, Indigo Blue 002776)
 > - Typography: fonts are clear, comfortable to the eye and make reference to writing/publishing universes.
@@ -116,7 +117,7 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 > - It contains one field linking categories to posts.
 > - It contains one field linking users who have created posts.
 
-[DB schema](assets/docs/portuglish-diagram.png)
+- ![DB schema](static/docs/portuglish_diagram.png)
 
 ### Technologies Used
 
