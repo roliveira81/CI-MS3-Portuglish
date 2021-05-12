@@ -5,15 +5,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <p>Register TEXT</p>
-        <form name="sentMessage" id="registerForm" method="POST" action="{{ url_for('register') }}">
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls">
-              <label>Name</label>
-              <input type="text" class="form-control" placeholder="Name" name="name" id="name" maxlength="100" required data-validation-required-message="Please enter your name.">
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
+        <p>Login TEXT</p>
+        <form name="sentMessage" id="loginForm" method="POST" action="{{ url_for('login') }}">
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Email Address</label>
@@ -30,17 +23,17 @@
           </div>
           <br>
           <div id="success"></div>
-          <button type="submit" class="btn btn-primary" id="sendMessageButton">Register</button>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Log In</button>
         </form>
       </div>
     </div>
-    <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <p class="center-align">
-                Already Registered?
-                <a href="{{ url_for('login') }}" class="light-blue-text text-darken-4">Sign In</a>
-            </p>
-        </div>
-    </div>    
   </div>
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+        <p class="center-align">
+          New Here?
+          <a href="{{ url_for('register') }}" class="light-blue-text text-darken-4">Register Account</a>
+        </p>
+    </div>
+</div>      
 {% endblock %}
