@@ -71,7 +71,7 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 >
 #### 4. Skeleton
 >
-> - [Wireframes](https://github.com/roliveira81/CI-MS3-Portuglish/blob/master/static/docs/Portuglish_WF.pdf): desktop/mobile 
+> - [Wireframes](https://github.com/roliveira81/CI-MS3-Portuglish/blob/master/static/docs/portuglish_WF.pdf): desktop/mobile 
 > - Website with 3 main sections: header, search bar, featured results, endless scroll
 > - Fixed navigation bar (Home, About, Register) and Sign In function
 > - Footer with copyright info and Social Media icons
@@ -117,7 +117,7 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 > - It contains one field linking categories to posts.
 > - It contains one field linking users who have created posts.
 
-- ![DB schema](static/docs/portuglish_diagram.png)
+![DB schema](static/docs/portuglish_diagram.png)
 
 ### Technologies Used
 
