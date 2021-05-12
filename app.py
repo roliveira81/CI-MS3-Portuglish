@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import date
 if os.path.exists("env.py"):
     import env
 
@@ -32,6 +33,37 @@ def index():
 @app.route("/about")
 def about():
     return render_template("about.html")
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        # check if username already exists in db
+        existing_user = mongo.db.users.find_one(
+            {"email": request.form.get("email").lower()})
+
+        if existing_user:
+            flash("There is another user already registered under this e-Mail", category='danger')
+            return redirect(url_for("register"))
+
+        register = {
+            "name": request.form.get("name").lower(),
+            "email": request.form.get("email").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(register)
+
+        # put the new user into 'session' cookie
+        session["user"] = request.form.get("email").lower()
+        flash("Registration Successful!", category='success')
+        return redirect(url_for("profile", email=session["user"]))
+
+    return render_template("register.html")
+
+
+@app.route("/profile")
+def profile():
+    return render_template("profile.html")
 
 
 if __name__ == "__main__":

@@ -61,13 +61,13 @@
         <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
-                <div id="success">
-                    <div class="alert alert-danger">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        {% for message in messages %}
-                            <strong>{{ message }}</strong>
-                        {% endfor %}                        
-                    </div>
+                <div class="col-lg-6 col-md-10 mx-auto" id="success">
+                    {% for message in get_flashed_messages(with_categories=true) %}
+                        <div class="alert alert-{{ message[0] }}" style="text-align: center;">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <strong>{{ message[1] }}</strong>
+                        </div>
+                    {% endfor %}                        
                 </div>
             {% endif %}
         {% endwith %}
@@ -112,7 +112,7 @@
 							</a>
 						</li>
 					</ul>
-					<p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
+					<p class="copyright text-muted">Copyright &copy; Portuglish 2021</p>
 				</div>
 			</div>
 		</div>
