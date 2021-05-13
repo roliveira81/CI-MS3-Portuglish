@@ -38,7 +38,8 @@ def about():
 
 @app.route("/create_post", methods=["GET", "POST"])
 def create_post():
-    return render_template("create_post.html")    
+    categories = mongo.db.categories.find().sort("name", 1)
+    return render_template("create_post.html", categories=categories) 
 
 
 @app.route("/register", methods=["GET", "POST"])

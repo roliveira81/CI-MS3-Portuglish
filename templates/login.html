@@ -1,42 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
-
-<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-      <p>Login TEXT</p>
-      <form name="sentMessage" id="loginForm" method="POST" action="{{ url_for('login') }}">
-        <div class="control-group">
-          <div class="form-group floating-label-form-group controls">
-            <label>Email Address</label>
-            <input type="email" class="form-control" placeholder="Email Address" name="email" id="email" maxlength="100"
-              required data-validation-required-message="Please enter your email address.">
-            <p class="help-block text-danger"></p>
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p>Login TEXT</p>
+        <form name="sentMessage" id="loginForm" method="POST" action="{{ url_for('login') }}">
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Email Address</label>
+              <input type="email" class="form-control" placeholder="Email Address" name="email" id="email" maxlength="100"
+                required data-validation-required-message="Please enter your email address.">
+              <p class="help-block text-danger"></p>
+            </div>
           </div>
-        </div>
-        <div class="control-group">
-          <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label>Password</label>
-            <input type="password" class="form-control" placeholder="Password" id="password" name="password"
-              maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required
-              data-validation-required-message="Please create a password.">
-            <p class="help-block text-danger"></p>
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Password</label>
+              <input type="password" class="form-control" placeholder="Password" id="password" name="password"
+                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required
+                data-validation-required-message="Please create a password.">
+              <p class="help-block text-danger"></p>
+            </div>
           </div>
-        </div>
-        <br>
-        <div id="success"></div>
-        <button type="submit" class="btn btn-primary" id="sendMessageButton">Log In</button>
-      </form>
+          <br>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Log In</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-lg-8 col-md-10 mx-auto">
-    <p class="center-align">
-      New Here?
-      <a href="{{ url_for('register') }}" class="light-blue-text text-darken-4">Register Account</a>
-    </p>
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <p class="center-align">
+        New Here?
+        <a href="{{ url_for('register') }}" class="light-blue-text text-darken-4">Register Account</a>
+      </p>
+    </div>
   </div>
-</div>
 {% endblock %}
