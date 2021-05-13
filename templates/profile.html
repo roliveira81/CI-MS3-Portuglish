@@ -16,9 +16,7 @@
                         </a>
                         <p class="post-meta">Category: {{ post.category }}</p>
                         <p>{{ post.description }}</p>
-                        <p class="post-meta">Posted by
-                            <a href="#">{{ post.email_creator }}</a>
-                            on {{ post.created }}
+                        <p class="post-meta">Created on {{ post.created }}
                         </p>
                         <p>
                             <button type="button" class="btn btn-outline-secondary">
@@ -46,7 +44,7 @@
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary">Yes</button>
+                            <a href="{{ url_for('delete_post', _id=post._id) }}" class="btn btn-primary">Yes</a>
                             </div>
                         </div>
                         </div>

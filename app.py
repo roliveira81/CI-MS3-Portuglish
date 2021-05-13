@@ -65,6 +65,13 @@ def create_post():
     return render_template("create_post.html", categories=categories, section=section) 
 
 
+@app.route("/delete_post/<_id>")
+def delete_post(_id):
+    mongo.db.posts.remove({"_id": ObjectId(_id)})
+    flash("Post Successfully Deleted")
+    return redirect(url_for("profile"))
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     section = { "view": "Be a collaborator"  ,
