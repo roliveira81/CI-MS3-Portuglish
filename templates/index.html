@@ -23,9 +23,6 @@
                         <h2 class="post-title">
                             {{ post.title }}
                         </h2>
-                        <!-- <h3 class="post-subtitle">
-                                        {{ post.description }}
-                                    </h3> -->
                     </a>
                     <p class="post-meta">Category: {{ post.category }}</p>
                     <p>{{ post.description }}</p>
@@ -34,10 +31,12 @@
                         on {{ post.created }}
                     </p>
                     <p>
-                        <button type="button" class="btn btn-outline-secondary">
+                        <button type="button" class="btn btn-outline-secondary" 
+                            onclick="javascript:location.href='{{ url_for('like_post', _id=post._id) }}';">
                             {{ post.like }} <i class="fas fa-thumbs-up"></i>
                         </button>
-                        <button type="button" class="btn btn-outline-secondary">
+                        <button type="button" class="btn btn-outline-secondary" 
+                            onclick="javascript:location.href='{{ url_for('dislike_post', _id=post._id) }}';">
                             {{ post.dislike }} <i class="fas fa-thumbs-down"></i>
                         </button>
                     </p>
