@@ -5,7 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import date
+from datetime import datetime
 if os.path.exists("env.py"):
     import env
 
@@ -27,7 +27,7 @@ mongo = PyMongo(app, ssl=True,ssl_cert_reqs='CERT_NONE')
 @app.route("/index")
 def index():
     # get only active posts
-    posts = list(mongo.db.posts.find({"active": "1"}))
+    posts = list(mongo.db.posts.find({"active": "1"}).sort('created', -1))
     return render_template("index.html", posts=posts)
 
 
@@ -38,6 +38,22 @@ def about():
 
 @app.route("/create_post", methods=["GET", "POST"])
 def create_post():
+    if request.method == "POST":
+        active = "1" if request.form.get("active") == "on" else "0"        
+        post = {
+            "category": request.form.get("category"),
+            "title": request.form.get("title"),
+            "description": request.form.get("description"),
+            "active": active,
+            "created": datetime.now().strftime("%d %B, %Y"),
+            "like": 0,
+            "dislike": 0,
+            "email_creator": session["email"]
+        }
+        mongo.db.posts.insert_one(post)
+        flash("Post Successfully Added", category='success')
+        return redirect(url_for("index"))
+
     categories = mongo.db.categories.find().sort("name", 1)
     return render_template("create_post.html", categories=categories) 
 
