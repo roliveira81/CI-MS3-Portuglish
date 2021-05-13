@@ -26,18 +26,25 @@ mongo = PyMongo(app, ssl=True,ssl_cert_reqs='CERT_NONE')
 @app.route("/")
 @app.route("/index")
 def index():
+    # fill the name, title and description dinamically to each page by page header on base template    
+    section = { "view": "Portuglish"  ,
+                "title": "The Survival Glossary for Brazilians Abroad"}    
     # get only active posts
     posts = list(mongo.db.posts.find({"active": "1"}).sort('created', -1))
-    return render_template("index.html", posts=posts)
+    return render_template("index.html", posts=posts, section=section)
 
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    section = { "view": "About"  ,
+                "title": "The Survival Glossary for Brazilians Abroad"}    
+    return render_template("about.html", section=section)
 
 
 @app.route("/create_post", methods=["GET", "POST"])
 def create_post():
+    section = { "view": "New Post"  ,
+                "title": "The Survival Glossary for Brazilians Abroad"}    
     if request.method == "POST":
         active = "1" if request.form.get("active") == "on" else "0"        
         post = {
@@ -55,11 +62,13 @@ def create_post():
         return redirect(url_for("index"))
 
     categories = mongo.db.categories.find().sort("name", 1)
-    return render_template("create_post.html", categories=categories) 
+    return render_template("create_post.html", categories=categories, section=section) 
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    section = { "view": "Be a collaborator"  ,
+                "title": "The Survival Glossary for Brazilians Abroad"}         
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -82,11 +91,13 @@ def register():
         flash("Registration Successful!", category='success')
         return redirect(url_for("profile", email=session["user"]))
 
-    return render_template("register.html")
+    return render_template("register.html", section=section)
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    section = { "view": "Portuglish"  ,
+                "title": "The Survival Glossary for Brazilians Abroad"}        
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -112,17 +123,19 @@ def login():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
-    return render_template("login.html")
+    return render_template("login.html", section=section)
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    section = { "view": "Portuglish"  ,
+                "title": "The Survival Glossary for Brazilians Abroad"}       
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"email": session["email"]})["name"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, section=section)
 
     return redirect(url_for("login"))
 
