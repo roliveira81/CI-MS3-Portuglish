@@ -1,28 +1,46 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            
-            <div class="post-preview">
-                <a href="post.html">
-                    <h2 class="post-title">
-                        Man must explore, and this is exploration at its greatest
-                    </h2>
-                    <h3 class="post-subtitle">
-                        Problems look mighty small from 150 miles up
-                    </h3>
-                </a>
-                <p class="post-meta">Posted by
-                    <a href="#">Start Bootstrap</a>
-                    on September 24, 2019</p>
-            </div>
-            <hr>
 
+        <div class="col-lg-8 col-md-10 mx-auto">
+            {% if posts|length > 0 %}
+                {% for post in posts %}
+                    <div class="post-preview">
+                        <a>
+                            <h2 class="post-title">
+                                {{ post.title }}
+                            </h2>
+                            <!-- <h3 class="post-subtitle">
+                                {{ post.description }}
+                            </h3> -->
+                        </a>
+                        <p class="post-meta">Category: {{ post.category }}</p>
+                        <p>{{ post.description }}</p>
+                        <p class="post-meta">Posted by
+                            <a href="#">{{ post.email_creator }}</a>
+                            on {{ post.created }} 
+                        </p>
+                        <p>
+                            <button type="button" class="btn btn-outline-secondary">
+                                <i class="fas fa-thumbs-up"></i>{{ post.like }}
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary">
+                                <i class="fas fa-thumbs-down"></i>{{ post.dislike }}
+                            </button>                            
+                        </p>
+                    </div>
+                    <hr>
+                {% endfor %}
+            {% else %}
+                <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
+            {% endif %}
             
             <!-- Pager -->
-            <div class="clearfix">
+            <!-- <div class="clearfix">
                 <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-            </div>
+            </div> -->
+            
         </div>
+
     </div>
 {% endblock %}

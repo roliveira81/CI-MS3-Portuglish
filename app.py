@@ -26,7 +26,8 @@ mongo = PyMongo(app, ssl=True,ssl_cert_reqs='CERT_NONE')
 @app.route("/")
 @app.route("/index")
 def index():
-    posts = mongo.db.posts.find()
+    # get only active posts
+    posts = list(mongo.db.posts.find({"active": "1"}))
     return render_template("index.html", posts=posts)
 
 
@@ -109,7 +110,7 @@ def logout():
     # remove user from session cookie
     flash("You have been signed out", category='success')
     session.pop("user")
-    return redirect(url_for("login"))
+    return redirect(url_for("index"))
 
 
 if __name__ == "__main__":
