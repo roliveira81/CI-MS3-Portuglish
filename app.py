@@ -65,6 +65,13 @@ def create_post():
     return render_template("create_post.html", categories=categories, section=section) 
 
 
+@app.route("/edit_post/<_id>", methods=["GET", "POST"])
+def edit_post(_id):
+    section = { "view": "Edit Post"  ,
+                "title": "The Survival Glossary for Brazilians Abroad"}        
+    return render_template("edit_post.html", section=section)
+
+
 @app.route("/delete_post/<_id>")
 def delete_post(_id):
     mongo.db.posts.remove({"_id": ObjectId(_id)})

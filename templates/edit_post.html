@@ -5,14 +5,18 @@
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
             <p>Colaborator: {{ username }}. Create new post TEXT</p>
-            <form name="sentMessage" id="createPostForm" method="POST" action="{{ url_for('create_post') }}">
+            <form name="sentMessage" id="createPostForm" method="POST" action="{{ url_for('edit_post', _id=post._id) }}">
                 <div class="control-group">
                     <div class="form-select floating-label-form-group controls">
                         <label>Category</label>
                         <select class="form-control" aria-label="Default select example" id="category"  name="category" required>
                             <option value="" disabled selected>Choose Category</option>
                             {% for category in categories %}
+                                {% if category.name == post.category %}
+                                <option value="{{ category.name }}" selected>{{ category.name }}</option>
+                                {% else %}
                                 <option value="{{ category.name }}">{{ category.name }}</option>
+                                {% endif %}                            
                             {% endfor %}
                           </select>
                         <p class="help-block text-danger"></p>
@@ -21,7 +25,7 @@
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         <label>Title</label>
-                        <input type="text" class="form-control" placeholder="Title" name="title" id="title"
+                        <input type="text" class="form-control" placeholder="Title" name="title" id="title" value="{{ post.title }}"
                             maxlength="200" required data-validation-required-message="Please enter the post title.">
                         <p class="help-block text-danger"></p>
                     </div>
@@ -30,14 +34,18 @@
                     <div class="form-group floating-label-form-group controls">
                         <label>Description</label>
                         <textarea rows="5" class="form-control" placeholder="Description" id="description" name="description" maxlength="1000" required
-                            data-validation-required-message="Please enter the post description."></textarea>
+                            data-validation-required-message="Please enter the post description.">{{- post.description -}}</textarea>
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         <label>Active</label>
-                        <input type="checkbox" id="active" name="active" checked>
+                        {% if post.active == "1" %}
+                            <input type="checkbox" id="active" name="active" checked>
+                        {% else %}
+                            <input type="checkbox" id="active" name="active">
+                        {% endif %}                        
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>             
