@@ -30,7 +30,19 @@ def index():
     section = { "view": "Portuglish"  ,
                 "title": "The Survival Glossary for Brazilians Abroad"}    
     # get only active posts
-    posts = list(mongo.db.posts.find({"active": "1"}).sort('created', -1))
+    posts = list(mongo.db.posts.find({"active": "1"}).sort('created', 1))
+    return render_template("index.html", posts=posts, section=section)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    section = { "view": "Portuglish"  ,
+                "title": "The Survival Glossary for Brazilians Abroad"}        
+    query = request.form.get("query")
+    if query == '':
+        return redirect(url_for("index"))
+        
+    posts = list(mongo.db.posts.find({"$text": {"$search": query}}))
     return render_template("index.html", posts=posts, section=section)
 
 

@@ -3,7 +3,6 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <p>Hi, {{ username }}.<br> Create new post TEXT</p>
                 {% if posts|length > 0 %}
                     {% for post in posts %}
                         <div class="post-preview">
@@ -57,9 +56,14 @@
                         </div>                       
                     {% endfor %}
                 {% else %}
-                    <div style="text-align: center;">
-                        <p >No Results Found</p>
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                      <p class="center-align">
+                        Ready to start?
+                        <a href="{{ url_for('create_post') }}" class="light-blue-text text-darken-4">Create a post</a>
+                      </p>
                     </div>
+                  </div>
                 {% endif %}
             </div>
         </div>   

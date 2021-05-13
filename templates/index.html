@@ -3,38 +3,51 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                {% if posts|length > 0 %}
-                    {% for post in posts %}
-                        <div class="post-preview">
-                            <a>
-                                <h2 class="post-title">
-                                    {{ post.title }}
-                                </h2>
-                                <!-- <h3 class="post-subtitle">
-                                    {{ post.description }}
-                                </h3> -->
-                            </a>
-                            <p class="post-meta">Category: {{ post.category }}</p>
-                            <p>{{ post.description }}</p>
-                            <p class="post-meta">Posted by
-                                <a href="#">{{ post.email_creator }}</a>
-                                on {{ post.created }}
-                            </p>
-                            <p>
-                                <button type="button" class="btn btn-outline-secondary">
-                                    {{ post.like }} <i class="fas fa-thumbs-up"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary">
-                                    {{ post.dislike }} <i class="fas fa-thumbs-down"></i>
-                                </button>
-                            </p>
-                        </div>
-                        <hr>
-                    {% endfor %}
-                {% else %}
-                    <div style="text-align: center;">
-                        <p >No Results Found</p>
+                <form method="post" action="{{ url_for('search') }}">
+                    <div class="input-group rounded">
+                        <input type="search" name="query" id="query" minlength="3"
+                            class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                        <button type="submit" class="input-group-text border-0" id="search-addon">
+                            <i class="fas fa-search"></i>
+                        </button>                            
                     </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                {% if posts|length > 0 %}
+                {% for post in posts %}
+                <div class="post-preview">
+                    <a>
+                        <h2 class="post-title">
+                            {{ post.title }}
+                        </h2>
+                        <!-- <h3 class="post-subtitle">
+                                        {{ post.description }}
+                                    </h3> -->
+                    </a>
+                    <p class="post-meta">Category: {{ post.category }}</p>
+                    <p>{{ post.description }}</p>
+                    <p class="post-meta">Posted by
+                        <a href="#">{{ post.email_creator }}</a>
+                        on {{ post.created }}
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-outline-secondary">
+                            {{ post.like }} <i class="fas fa-thumbs-up"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary">
+                            {{ post.dislike }} <i class="fas fa-thumbs-down"></i>
+                        </button>
+                    </p>
+                </div>
+                <hr>
+                {% endfor %}
+                {% else %}
+                <div style="text-align: center;">
+                    <p>No Results Found</p>
+                </div>
                 {% endif %}
             </div>
         </div>

@@ -2,7 +2,7 @@
 
 [LIVE SITE ON HEROKU](https://portuglish-app.herokuapp.com/)
 
-<!-- ![Image](static/images/mock.png) -->
+![Image](static/images/mock.png)
 
 ### Overview
 > Living abroad is quite an adventure. Expats, immigrants, globetrotters, digital nomads...whatever the definition we choose, one thing is certain: there will be lots of challenges. Other than being apart from beloved ones and starting a brand new life from scratch, one thing pervades every aspect of it  - language.
