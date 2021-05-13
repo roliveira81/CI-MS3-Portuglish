@@ -62,14 +62,31 @@ def create_post():
         return redirect(url_for("index"))
 
     categories = mongo.db.categories.find().sort("name", 1)
-    return render_template("create_post.html", categories=categories, section=section) 
+    return render_template("create_post.html", categories=categories, section=section, username=session["user"]) 
 
 
 @app.route("/edit_post/<_id>", methods=["GET", "POST"])
 def edit_post(_id):
     section = { "view": "Edit Post"  ,
                 "title": "The Survival Glossary for Brazilians Abroad"}        
-    return render_template("edit_post.html", section=section)
+    if request.method == "POST":
+        active = "1" if request.form.get("active") == "on" else "0"        
+        post = {
+            "category": request.form.get("category"),
+            "title": request.form.get("title"),
+            "description": request.form.get("description"),
+            "active": active,
+            "created": datetime.now().strftime("%d %B, %Y"),
+            "like": 0,
+            "dislike": 0,
+            "email_creator": session["email"]
+        }
+        mongo.db.posts.update({"_id": ObjectId(_id)}, post)
+        flash("Task Successfully Updated", category='success')
+
+    post = mongo.db.posts.find_one({"_id": ObjectId(_id)})
+    categories = mongo.db.categories.find().sort("name", 1)                
+    return render_template("edit_post.html", post=post, categories=categories, section=section, username=session["user"])
 
 
 @app.route("/delete_post/<_id>")
@@ -142,17 +159,13 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    section = { "view": "Colaborator Profile"  ,
+    section = { "view": "My Profile"  ,
                 "title": "Manage here your posts"}       
-    # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"email": session["email"]})["name"]
-
     
     if session["user"]:
         # get only all colaborator posts (active/inactive)
         posts = list(mongo.db.posts.find({"email_creator": session["email"]}).sort('created', -1))
-        return render_template("profile.html", posts=posts, username=username, section=section)
+        return render_template("profile.html", posts=posts, username=session["user"], section=section)
 
     return redirect(url_for("login"))
 

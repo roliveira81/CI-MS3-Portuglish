@@ -1,60 +1,67 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Hi, {{ username }}</h1>
-    <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            {% if posts|length > 0 %}
-                {% for post in posts %}
-                    <div class="post-preview">
-                        <a>
-                            <h2 class="post-title">
-                                {{ post.title }}
-                            </h2>
-                            <!-- <h3 class="post-subtitle">
-                                {{ post.description }}
-                            </h3> -->
-                        </a>
-                        <p class="post-meta">Category: {{ post.category }}</p>
-                        <p>{{ post.description }}</p>
-                        <p class="post-meta">Created on {{ post.created }}
-                        </p>
-                        <p>
-                            <button type="button" class="btn btn-outline-secondary">
-                                {{ post.like }} <i class="fas fa-thumbs-up"></i>
-                            </button>
-                            <button type="button" class="btn btn-outline-secondary">
-                                {{ post.dislike }} <i class="fas fa-thumbs-down"></i>
-                            </button>
-                            <button onclick="javascript:window.location='{{ url_for('edit_post', _id=post._id) }}';" type="button" class="btn btn-outline-success">Edit</button>
-                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal{{ post._id }}">Delete</button>                          
-                        </p>
-                    </div>
-                    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <p>Hi, {{ username }}.<br> Create new post TEXT</p>
+                {% if posts|length > 0 %}
+                    {% for post in posts %}
+                        <div class="post-preview">
+                            <a>
+                                <h2 class="post-title">
+                                    {{ post.title }}
+                                </h2>
+                                <!-- <h3 class="post-subtitle">
+                                    {{ post.description }}
+                                </h3> -->
+                            </a>
+                            <p class="post-meta">Category: {{ post.category }}</p>
+                            <p>{{ post.description }}</p>
+                            <p class="post-meta">Created on {{ post.created }}
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-outline-secondary">
+                                    {{ post.like }} <i class="fas fa-thumbs-up"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary">
+                                    {{ post.dislike }} <i class="fas fa-thumbs-down"></i>
+                                </button>
+                                <button onclick="javascript:window.location='{{ url_for('edit_post', _id=post._id) }}';" type="button" class="btn btn-outline-success">Edit</button>
+                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal{{ post._id }}">Delete</button>       
+                                {% if post.active == "1" %}
+                                    <button type="button" class="btn btn-outline-secondary" title="published"><i class="fas fa-check-circle"></i></button>  
+                                {% else %}
+                                    <button type="button" class="btn btn-outline-secondary" title="unpublished"><i class="fas fa-times-circle"></i></button>  
+                                {% endif %}                     
+                            </p>
+                        </div>
+                        <hr>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="deleteModal{{ post._id }}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h5 class="modal-title" id="deleteModalLabel">Delete Post</h5>
-                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">&times;</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="deleteModal{{ post._id }}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteModalLabel">Delete Post</h5>
+                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                    Do you really want to delete this post?
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <a href="{{ url_for('delete_post', _id=post._id) }}" class="btn btn-primary">Yes</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                            Do you really want to delete this post?
-                            </div>
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <a href="{{ url_for('delete_post', _id=post._id) }}" class="btn btn-primary">Yes</a>
-                            </div>
-                        </div>
-                        </div>
-                    </div>                       
-                {% endfor %}
-            {% else %}
-                <div style="text-align: center;">
-                    <p >No Results Found</p>
-                </div>
-            {% endif %}
-        </div>
-    </div>   
+                        </div>                       
+                    {% endfor %}
+                {% else %}
+                    <div style="text-align: center;">
+                        <p >No Results Found</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>   
+    </div>    
 {% endblock %}
