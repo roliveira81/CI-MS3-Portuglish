@@ -79,7 +79,7 @@ def register():
             return redirect(url_for("register"))
 
         register = {
-            "name": request.form.get("name").lower(),
+            "name": request.form.get("name"),
             "email": request.form.get("email").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
@@ -89,7 +89,7 @@ def register():
         session["user"] = request.form.get("name").lower()
         session["email"] = request.form.get("email").lower()                
         flash("Registration Successful!", category='success')
-        return redirect(url_for("profile", email=session["user"]))
+        return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html", section=section)
 
@@ -128,14 +128,17 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    section = { "view": "Portuglish"  ,
-                "title": "The Survival Glossary for Brazilians Abroad"}       
+    section = { "view": "Colaborator Profile"  ,
+                "title": "Manage here your posts"}       
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"email": session["email"]})["name"]
 
+    
     if session["user"]:
-        return render_template("profile.html", username=username, section=section)
+        # get only all colaborator posts (active/inactive)
+        posts = list(mongo.db.posts.find({"email_creator": session["email"]}).sort('created', -1))
+        return render_template("profile.html", posts=posts, username=username, section=section)
 
     return redirect(url_for("login"))
 
