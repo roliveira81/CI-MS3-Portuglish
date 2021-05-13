@@ -36,6 +36,11 @@ def about():
     return render_template("about.html")
 
 
+@app.route("/create_post", methods=["GET", "POST"])
+def create_post():
+    return render_template("create_post.html")    
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
