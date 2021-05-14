@@ -100,9 +100,8 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 
 ##### Features left to Implement.
 > In the future, it would be nice to implement the following features:
-
-> - Search posts by category and tags
-> - Allow visitors comments 
+>   - Search posts by category and tags
+>   - Allow visitors comments 
 
 ### Portuglish Database Model and Schema
 
@@ -187,17 +186,17 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 ### TESTING
 
 > In general, the application was stressed by hitting all the links and simulating navigation as follow:
-
+>
 > As a user, I started navigating the website on the homepage, and scrolled to see the posts displayed. I tried the search bar and noticed there's a minimum of 3 characters to perform it. It brought back the results I was expecting, ordered chronologically from the newest to the oldest. 
 Like and dislike features were working fine.
- 
+> 
 > I then tried the Register button, which led to a very straightforward form to sign up to the website and collaborate as a creator. 
 The next step was creating a post, where you can choose among several categories, including  an "Other" option for cases where none of them fits. After creating an entry, I tested editing and deleting through the available buttons and they worked OK, retrieving a message to sign it was successful.
-
+>
 > Then, I navigated through the About session, which was not very long and easy to read. Social Media links on every page are handy for those interested in more. 
 Finally, just clicking on the Sign Out on top of the page logged me out of the profile. 
 No issues raised. 
-
+>
 > For those who want to test the application, I recommend go to Register section, create an app account and interact with the app as a "Collaborator".
 
 > #### HTML
@@ -232,41 +231,41 @@ that all responsivess capabilities inherited from the "Clean Blog" StartBootstra
 
 ### Deployment
 
-This project has been deployed based on Github, Git and Herokuon Cloud Plataform integration, on the following process:
-
-- Install the following libraries: python and flask
-    [Python Local Environment](https://code.visualstudio.com/docs/python/tutorial-flask)
-    `pip3 install flask`
-
-- Generate a **requirements.txt** file to allow Heroku to install the dependencies required to run the app (this file needs to be updated every new dependency installed).
-    `pip freeze > requirements.txt`
-
-- Create a **Procfile** with the command:
-    `echo web: python app.py > Procfile`
-
-- Create an account on the [Heroku website](https://signup.heroku.com/).
-    - Login to the account, click on new and then create a new app. In the following screen, you need to give a name and choose the Europe region.
-    - In the menu access the **Deploy** option, after that click on Connect to Github. Just below provide the information from the app's repository on GitHub and select the option Enable Automatic - On the Dashboard of the APP, click on Settings and then click on the option **Reveal config Vars**.
-    - Now you need to add the following variables to **Reveal config Vars**:
-        - **IP**: `0.0.0.0`
-        - **PORT**: `5000`
-        - **MONGO_URI**: `link to your Mongo DB`
-        - **SECRET_KEY**: `your chosen secret key`
-
-- Create a MongoDB on [MongoDB website](https://account.mongodb.com/).
-    - Create a shared cluster tier, a cloud provider and set the Europe region;
-    - Once the cluster is created, create a new database and set the database user privileges to read and write to the database;
-    - Create database collections;
-    - Connect the database to the application;
-    - Set the environmental variables from the app;
-
-- Install the following libraries: flask-pymongo and dnspython
-		`pip3 install flask-pymongo`
-		`pip3 install dnspython`
-
-- Then, the app is available live on Heroku.
-
-* To run local, set the SSL LOCAL=true [Resource](https://stackoverflow.com/questions/54484890/ssl-handshake-issue-with-pymongo-on-python3)
+> This project has been deployed based on Github, Git and Herokuon Cloud Plataform integration, on the following process:
+> 
+> - Install the following libraries: 
+>     - python [Python Local Environment](https://code.visualstudio.com/docs/python/tutorial-flask) 
+>     - flask `pip3 install flask`
+> 
+> - Generate a **requirements.txt** file to allow Heroku to install the dependencies required to run the app (this file needs to be updated every new dependency installed): 
+>   - `pip freeze > requirements.txt`
+> 
+> - Create a **Procfile** with the command: 
+>   - `echo web: python app.py > Procfile`
+> 
+> - Create an account on the [Heroku website](https://signup.heroku.com/).
+>     - Login to the account, click on new and then create a new app. In the following screen, you need to give a name and choose the Europe region.
+>     - In the menu access the **Deploy** option, after that click on Connect to Github. Just below provide the information from the app's repository on GitHub and select the option Enable > Automatic - On the Dashboard of the APP, click on Settings and then click on the option **Reveal config Vars**.
+>     - Now you need to add the following variables to **Reveal config Vars**:
+>         - **IP**: `0.0.0.0`
+>         - **PORT**: `5000`
+>         - **MONGO_URI**: `link to your Mongo DB`
+>         - **SECRET_KEY**: `your chosen secret key`
+> 
+> - Create a MongoDB on [MongoDB website](https://account.mongodb.com/).
+>     - Create a shared cluster tier, a cloud provider and set the Europe region;
+>     - Once the cluster is created, create a new database and set the database user privileges to read and write to the database;
+>     - Create database collections;
+>     - Connect the database to the application;
+>     - Set the environmental variables from the app;
+> 
+> - Install the following libraries: flask-pymongo and dnspython
+>       - `pip3 install flask-pymongo`
+>       - `pip3 install dnspython`
+> 
+> - Then, the app is available live on Heroku.
+> 
+> * To run local, set the SSL LOCAL=true [Resource](https://stackoverflow.com/questions/54484890/ssl-handshake-issue-with-pymongo-on-python3)
 
 ---
 
