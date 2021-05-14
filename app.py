@@ -26,6 +26,9 @@ mongo = PyMongo(app, ssl=True,ssl_cert_reqs='CERT_NONE')
 @app.route("/")
 @app.route("/index")
 def index():
+    """
+    Main view. Load all active posts for browse and search
+    """
     # fill the name, title and description dinamically to each page by page header on base template    
     section = { "view": "Portuglish"  ,
                 "title": "The Survival Glossary for Brazilians Abroad"}    
@@ -36,6 +39,9 @@ def index():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    """
+    Search feature on main view between the published and active posts 
+    """
     section = { "view": "Portuglish"  ,
                 "title": "The Survival Glossary for Brazilians Abroad"}        
     query = request.form.get("query")
@@ -48,6 +54,9 @@ def search():
 
 @app.route("/about")
 def about():
+    """
+    Static view. It brings the project conception.
+    """
     section = { "view": "About"  ,
                 "title": "The Survival Glossary for Brazilians Abroad"}    
     return render_template("about.html", section=section)
@@ -55,6 +64,9 @@ def about():
 
 @app.route("/create_post", methods=["GET", "POST"])
 def create_post():
+    """
+    Feature that provides the form to create new Posts
+    """
     username = session["user"]
     section = { "view": "New Post",
                 "title": f"Hi, {username}! We can't wait for your ideas"}  
@@ -80,6 +92,9 @@ def create_post():
 
 @app.route("/edit_post/<_id>", methods=["GET", "POST"])
 def edit_post(_id):
+    """
+    Feature that provides the form to update some post    
+    """
     section = { "view": "Edit Post"  ,
                 "title": "The Survival Glossary for Brazilians Abroad"}        
     if request.method == "POST":
@@ -104,6 +119,9 @@ def edit_post(_id):
 
 @app.route("/delete_post/<_id>")
 def delete_post(_id):
+    """
+    Feature to delete posts.
+    """
     mongo.db.posts.remove({"_id": ObjectId(_id)})
     flash("Post Successfully Deleted")
     return redirect(url_for("profile"))
@@ -111,6 +129,10 @@ def delete_post(_id):
 
 @app.route("/like_post/<_id>")
 def like_post(_id):
+    """
+    Feature to allow users to like posts, storing the positive
+    votes in the DB
+    """
     post = (mongo.db.posts.find_one({"_id": ObjectId(_id)}))
     likes_updated = (int(post['like']) + 1)
     mongo.db.posts.update({"_id": ObjectId(ObjectId(_id))}, {"$set": {"like": likes_updated}})   
@@ -119,6 +141,10 @@ def like_post(_id):
 
 @app.route("/dislike_post/<_id>")
 def dislike_post(_id):
+    """
+    Feature to allow users to like posts, storing the negative
+    votes in the DB
+    """    
     post = (mongo.db.posts.find_one({"_id": ObjectId(_id)}))
     dislikes_updated = (int(post['dislike']) + 1)
     mongo.db.posts.update({"_id": ObjectId(ObjectId(_id))}, {"$set": {"dislike": dislikes_updated}})    
@@ -127,6 +153,10 @@ def dislike_post(_id):
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    Form to allow new users to become a colabarator by 
+    registering themselves
+    """
     section = { "view": "Be a collaborator"  ,
                 "title": "Help the Brazilian community to better express their ideas"}         
     if request.method == "POST":
@@ -156,6 +186,9 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    Sign in feature, to allow colaborators to manage their posts
+    """
     section = { "view": "Sign In"  ,
                 "title": "Help the Brazilian community to better express their ideas"}        
     if request.method == "POST":
@@ -188,6 +221,10 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    """
+    Feature to allow users to manage their posts, editing, deleting,
+    publish and unpublish existent posts
+    """
     section = { "view": "Welcome",
                 "title": f"Hi, {username}! We can't wait for your ideas"}       
     
@@ -201,6 +238,9 @@ def profile(username):
 
 @app.route("/logout")
 def logout():
+    """
+    User log out feature
+    """
     # remove user from session cookie
     flash("You have been signed out", category='success')
     session.pop("user")
