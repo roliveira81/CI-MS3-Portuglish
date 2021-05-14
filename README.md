@@ -141,6 +141,7 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 
 > - [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Flask micro framework was used to build the web app using python code.
 > - [Flask-bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) - Flask bcrypt was used to has the users password before storing it in the database.
+> - [Flask-mongoengine](http://docs.mongoengine.org/projects/flask-mongoengine/en/latest/) - A Flask extension that provides integration with MongoEngine.
 
 ##### 4. Frameworks and Libraries.
 
@@ -173,7 +174,7 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 ### Resources
 
 > - [Code Institute Course Content](https://courses.codeinstitute.net/) - Main source of fundamental knowledge.
-> - [Stack Overflow](https://stackoverflow.com/) - General resource.
+> - [Stack Overflow](https://stackoverflow.com/) - General resource, mainly for MongoDB query questions.
 > - [Bootstrap](https://getbootstrap.com/) - Resource of icons, form and modal elements. 
 > - [CSS-Tricks](https://css-tricks.com/) - General resource.
 > - [w3schools.com](https://w3schools.com.com/) - General resource.
@@ -185,21 +186,29 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 
 ### TESTING
 
-> In general I stressed the application hiting all the links and simulating navigation as a User:
+> In general, the application was stressed by hitting all the links and simulating navigation as follow:
 
-Browsing and navigating by the index page (Post page or main page)
+> As a user, I started navigating the website on the homepage, and scrolled to see the posts displayed. I tried the search bar and noticed there's a minimum of 3 characters to perform it. It brought back the results I was expecting, ordered chronologically from the newest to the oldest. 
+Like and dislike features were working fine.
+ 
+> I then tried the Register button, which led to a very straightforward form to sign up to the website and collaborate as a creator. 
+The next step was creating a post, where you can choose among several categories, including  an "Other" option for cases where none of them fits. After creating an entry, I tested editing and deleting through the available buttons and they worked OK, retrieving a message to sign it was successful.
 
-> For those who want to test the application, I recommend go to Register section, create an app account and interact with the app as a "Collaborator"
+> Then, I navigated through the About session, which was not very long and easy to read. Social Media links on every page are handy for those interested in more. 
+Finally, just clicking on the Sign Out on top of the page logged me out of the profile. 
+No issues raised. 
 
-> ### HTML
+> For those who want to test the application, I recommend go to Register section, create an app account and interact with the app as a "Collaborator".
+
+> #### HTML
 >
 > - Ran HTML code through [HTML Validator](https://validator.w3.org/) 
 > - Browse compatibility check
 >   
-> ### CSS
+> #### CSS
 > - Ran CSS code through [CSS Validator](https://jigsaw.w3.org/css-validator/). The errors found comes from the core of bootstrap template, which cannot be changed.
 > 
-> ### RESPONSIVENESS
+> #### RESPONSIVENESS
 >
 > - Application tested on all different sizes by Google DevTools: from 360 x 640 up to 1024 x 1366.
 > - Viewed site on above range (including Responsive mode) on : Google Chrome, Edge
@@ -207,7 +216,7 @@ Browsing and navigating by the index page (Post page or main page)
 > - By the fact it was used on this project a homologated bootstrap template, no changes on building templates caused any harm to the navite responsiveness capability, which means
 that all responsivess capabilities inherited from the "Clean Blog" StartBootstrap template were preserved and checked by navigation tests in different types of devices.
 > 
-> ### PYTHON3 VALIDITY
+> #### PYTHON3 VALIDITY
 >
 > - Readability, code smells, logical meaning and indentation of the code was checked by PEP8 online tool with 100% of approve.
 > - No one  errors were left, which shows a great cohesion of the code.
@@ -223,9 +232,41 @@ that all responsivess capabilities inherited from the "Clean Blog" StartBootstra
 
 ### Deployment
 
-This project has been deployed on Heroku Cloud Plataform on following process:
+This project has been deployed based on Github, Git and Herokuon Cloud Plataform integration, on the following process:
 
-Github, Gitpod, Git and Heroku
+- Install the following libraries: python and flask
+    [Python Local Environment](https://code.visualstudio.com/docs/python/tutorial-flask)
+    `pip3 install flask`
+
+- Generate a **requirements.txt** file to allow Heroku to install the dependencies required to run the app (this file needs to be updated every new dependency installed).
+    `pip freeze > requirements.txt`
+
+- Create a **Procfile** with the command:
+    `echo web: python app.py > Procfile`
+
+- Create an account on the [Heroku website](https://signup.heroku.com/).
+    - Login to the account, click on new and then create a new app. In the following screen, you need to give a name and choose the Europe region.
+    - In the menu access the **Deploy** option, after that click on Connect to Github. Just below provide the information from the app's repository on GitHub and select the option Enable Automatic - On the Dashboard of the APP, click on Settings and then click on the option **Reveal config Vars**.
+    - Now you need to add the following variables to **Reveal config Vars**:
+        - **IP**: `0.0.0.0`
+        - **PORT**: `5000`
+        - **MONGO_URI**: `link to your Mongo DB`
+        - **SECRET_KEY**: `your chosen secret key`
+
+- Create a MongoDB on [MongoDB website](https://account.mongodb.com/).
+    - Create a shared cluster tier, a cloud provider and set the Europe region;
+    - Once the cluster is created, create a new database and set the database user privileges to read and write to the database;
+    - Create database collections;
+    - Connect the database to the application;
+    - Set the environmental variables from the app;
+
+- Install the following libraries: flask-pymongo and dnspython
+		`pip3 install flask-pymongo`
+		`pip3 install dnspython`
+
+- Then, the app is available live on Heroku.
+
+* To run local, set the SSL LOCAL=true [Resource](https://stackoverflow.com/questions/54484890/ssl-handshake-issue-with-pymongo-on-python3)
 
 ---
 
@@ -244,5 +285,3 @@ Github, Gitpod, Git and Heroku
 > - Modal html alert message functionality and it launch on screen was took from [Bootstrap](https://getbootstrap.com/). 
 
 ---
-
-SSL LOCAL FALSE https://stackoverflow.com/questions/54484890/ssl-handshake-issue-with-pymongo-on-python3
