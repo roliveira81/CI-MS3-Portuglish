@@ -6,7 +6,7 @@
 
 ### Overview
 > Living abroad is quite an adventure. Expats, immigrants, globetrotters, digital nomads...whatever the definition we choose, one thing is certain: there will be lots of challenges. Other than being apart from beloved ones and starting a brand new life from scratch, one thing pervades every aspect of it  - language.
-
+>
 > Expressing ourselves precisely, as we would in our mother tongue, can be hard or even impossible in some cases. But why not take some fun and learn from it?
 
 ---
@@ -30,9 +30,9 @@
 ### UX
 
 > This is a simple, easy-to-navigate and building glossary where you can search words and expressions by category, situation or sentiment. 
- 
+> 
 > The website targets Brazilians living in Ireland, but is also valuable to other portuguese speakers in English-speaking countries and English students willing to learn more about day-to-day language.
- 
+> 
 > As Brazil is a huge country and there are many different ways of speaking the same thing, the website values diversity and encourages people to give their contributions and even vote for the best translations and definitions.
 Words can do harm, so to keep a safe environment for everyone, content will be moderated and there is a report function on every entry.
 
@@ -41,9 +41,9 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 #### 1. Strategy
 
 > The identity intends to be self-explanatory: the name, a combination of Portuguese and English, is a known expression (it even has an entry on Wikipedia!) and refers to the habit of mixing both languages in an attempt to express an idea. The subtitle is meant to be a funny hyperbole of the struggle many language learners go through, setting a friendly tone and clarity on what the website is about. The header image and colour code follows the Brazilian flag and brings vibrance to a very straightforward and clean template. 
- 
+> 
 > Speaking of colours, language is not a black or white sort of thing, so I deemed it relevant to give users the option to search not only alphabetically or by word, but also by category, situation or sentiment. Ideally, there would be many possible results to each of those filters, and that’s what makes user contribution so important to content relevance and diversity. 
-
+>
 > ##### Project Goals:
 >
 > - Build a community of collaborators to grow and enrich a glossary of popular Brazilian expressions and their equivalents in English
@@ -90,18 +90,18 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 ##### Existing Features
 
 > - Designed with HTML, CSS, JavaScript, Python+Flask, MongoDB.
-> - [Posts](https://portuglish-app.herokuapp.com/index) - Home page with list of published posts and a Search bar ordered by creation date. It gives options to like or dislike any content.;
-> - [About](https://portuglish-app.herokuapp.com/about) - About section is a static page to conceptualize the application idea: 
+> - [Posts](https://portuglish-app.herokuapp.com/index) - Home page with list of published posts and a Search bar ordered by creation date. It gives options to like or dislike any content;
+> - [About](https://portuglish-app.herokuapp.com/about) - About section is a static page to conceptualize the application idea;
 > - [Register](https://portuglish-app.herokuapp.com/register) - New User registration page;
 > - [Sign In](https://portuglish-app.herokuapp.com/login) - Sign-In page and Sign out feature;
 > - [New Post](https://portuglish-app.herokuapp.com/create_post) - Page for authenticated users to collaborate with the project creating relevant posts;
 > - [Profile](https://portuglish-app.herokuapp.com/profile/Roberto%20Oliveira) - Profile page to allow collaborators to create, edit, activate, deactivate or delete posts;
 
-
 ##### Features left to Implement.
 > In the future, it would be nice to implement the following features:
->   - Search posts by category and tags
+>   - Search posts by situation or sentiment and tags
 >   - Allow visitors comments 
+>   - Report posts
 
 ### Portuglish Database Model and Schema
 
@@ -111,10 +111,10 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 
 > Users
 > - The Users collection contains information about the users with one to many relationship with the Posts model for the users who created posts.
-
+>
 > Categories
 > - The category model contains a category name which is then referenced in the posts model.
-
+>
 > Posts
 > - The Posts model contains the information for each post.
 > - It also contains a relationship with the usermodel for the Post author field.
@@ -198,14 +198,14 @@ Finally, just clicking on the Sign Out on top of the page logged me out of the p
 No issues raised. 
 >
 > For those who want to test the application, I recommend go to Register section, create an app account and interact with the app as a "Collaborator".
-
+>
 > #### HTML
 >
 > - Ran HTML code through [HTML Validator](https://validator.w3.org/) 
 > - Browse compatibility check
 >   
 > #### CSS
-> - Ran CSS code through [CSS Validator](https://jigsaw.w3.org/css-validator/). The errors found comes from the core of bootstrap template, which cannot be changed.
+> - Ran CSS code through [CSS Validator](https://jigsaw.w3.org/css-validator/). The errors found come from the core of bootstrap template, which cannot be changed.
 > 
 > #### RESPONSIVENESS
 >
@@ -274,7 +274,7 @@ that all responsivess capabilities inherited from the "Clean Blog" StartBootstra
 > ##### Media
 >
 > - Header imagem: It was took from [Unsplash photos](https://unsplash.com/photos/V5vqWC9gyEU) by Volodymyr Hryshchenko.
-
+>
 > ##### Content
 >
 > - Most of the content was written by my wife, Bianca Aragone, which has helped hugely checking and creating most of the posts and section "About" definition.
