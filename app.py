@@ -55,8 +55,9 @@ def about():
 
 @app.route("/create_post", methods=["GET", "POST"])
 def create_post():
-    section = { "view": "New Post"  ,
-                "title": "The Survival Glossary for Brazilians Abroad"}    
+    username = session["user"]
+    section = { "view": "New Post",
+                "title": f"Hi, {username}! We can't wait for your ideas"}  
     if request.method == "POST":
         active = "1" if request.form.get("active") == "on" else "0"        
         post = {
@@ -113,7 +114,6 @@ def like_post(_id):
     post = (mongo.db.posts.find_one({"_id": ObjectId(_id)}))
     likes_updated = (int(post['like']) + 1)
     mongo.db.posts.update({"_id": ObjectId(ObjectId(_id))}, {"$set": {"like": likes_updated}})   
-    session["like_dislike"] = _id 
     return redirect(url_for("index"))    
 
 
@@ -122,14 +122,13 @@ def dislike_post(_id):
     post = (mongo.db.posts.find_one({"_id": ObjectId(_id)}))
     dislikes_updated = (int(post['dislike']) + 1)
     mongo.db.posts.update({"_id": ObjectId(ObjectId(_id))}, {"$set": {"dislike": dislikes_updated}})    
-    session["like_dislike"] = _id     
     return redirect(url_for("index")) 
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     section = { "view": "Be a collaborator"  ,
-                "title": "The Survival Glossary for Brazilians Abroad"}         
+                "title": "Help the Brazilian community to better express their ideas"}         
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -157,8 +156,8 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    section = { "view": "Portuglish"  ,
-                "title": "The Survival Glossary for Brazilians Abroad"}        
+    section = { "view": "Sign In"  ,
+                "title": "Help the Brazilian community to better express their ideas"}        
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -189,8 +188,8 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    section = { "view": "My Profile"  ,
-                "title": "Manage here your posts"}       
+    section = { "view": "Welcome",
+                "title": f"Hi, {username}! We can't wait for your ideas"}       
     
     if session["user"]:
         # get only all colaborator posts (active/inactive)
