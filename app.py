@@ -110,16 +110,19 @@ def delete_post(_id):
 
 @app.route("/like_post/<_id>")
 def like_post(_id):
-    post = mongo.db.posts.find({"_id": ObjectId("609db8454e266c50291884ee")})
-    print(post.like)
-    # mongo.db.posts.update({"_id": ObjectId(_id)}, { "like" : 1 })     
+    post = (mongo.db.posts.find_one({"_id": ObjectId(_id)}))
+    likes_updated = (int(post['like']) + 1)
+    mongo.db.posts.update({"_id": ObjectId(ObjectId(_id))}, {"$set": {"like": likes_updated}})   
+    session["like_dislike"] = _id 
     return redirect(url_for("index"))    
 
 
 @app.route("/dislike_post/<_id>")
 def dislike_post(_id):
-    likes = int(mongo.db.posts.find({"_id": ObjectId(_id)})["like"]) + 1
-    # mongo.db.posts.update({"_id": ObjectId("609db8454e266c50291884ee")}, { "like" : likes })     
+    post = (mongo.db.posts.find_one({"_id": ObjectId(_id)}))
+    dislikes_updated = (int(post['dislike']) + 1)
+    mongo.db.posts.update({"_id": ObjectId(ObjectId(_id))}, {"$set": {"dislike": dislikes_updated}})    
+    session["like_dislike"] = _id     
     return redirect(url_for("index")) 
 
 
