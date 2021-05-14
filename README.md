@@ -90,21 +90,19 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 ##### Existing Features
 
 > - Designed with HTML, CSS, JavaScript, Python+Flask, MongoDB.
-> - Home page with list of published posts
-> - Search bar for posts
-> - Results page, with options to like, dislike or report entries
-> - About section
-> - New User registration page
-> - Sign-In page
-> - Profile page to allow colaborators to create, edit and delete functions
-> - Reference to poster on each public entry
-> - Footer with social media links
+> - [Posts](https://portuglish-app.herokuapp.com/index) - Home page with list of published posts and a Search bar ordered by creation date. It gives options to like or dislike any content.;
+> - [About](https://portuglish-app.herokuapp.com/about) - About section is a static page to conceptualize the application idea: 
+> - [Register](https://portuglish-app.herokuapp.com/register) - New User registration page;
+> - [Sign In](https://portuglish-app.herokuapp.com/login) - Sign-In page and Sign out feature;
+> - [New Post](https://portuglish-app.herokuapp.com/create_post) - Page for authenticated users to collaborate with the project creating relevant posts;
+> - [Profile](https://portuglish-app.herokuapp.com/profile/Roberto%20Oliveira) - Profile page to allow collaborators to create, edit, activate, deactivate or delete posts;
+
 
 ##### Features left to Implement.
-In the future, it would be nice to implement the following features:
+> In the future, it would be nice to implement the following features:
 
-- Search posts by category and tags
-- Allow visitors comments 
+> - Search posts by category and tags
+> - Allow visitors comments 
 
 ### Portuglish Database Model and Schema
 
@@ -148,10 +146,8 @@ In the future, it would be nice to implement the following features:
 
 > - [StartBootstrap](https://startbootstrap.com/) - The clean Bootstrap theme used as the base of the site template.
 > - [Bootstrap](https://getbootstrap.com/) - The world’s most popular front-end open source toolkit to quickly design and customize responsive mobile-first sites.
-> - [Google Fonts](https://fonts.google.com/) - I imported the Mulish font from google fonts and used it consistently across the site.
-> - [Line awesome](https://icons8.com/line-awesome) - I used different icons from Line awesome for icons in the application.
-> - [Materialize](https://materializecss.com/) - Materialize Css was used for its grid system and it's form inputs.
-> - [jQuery](https://jquery.com/) - jQuery was used to initialize materialize functions.
+> - [Font Awesome](https://fontawesome.com/icons.com) - I used different icons from Line awesome for icons in the application.
+> - [jQuery](https://jquery.com/) - "Clean Blog" built-in jQuery was used to initialize bootstrap functions.
 
 ##### 5. Workspace, version control, Repository storage
 
@@ -183,48 +179,39 @@ In the future, it would be nice to implement the following features:
 > - [w3schools.com](https://w3schools.com.com/) - General resource.
 > - [Am I Responsive](http://ami.responsivedesign.is/) - Responsive website mockup image generator.
 > - [Balsamiq](https://balsamiq.com/wireframes/) - Wireframing design tool.
+> - [VisualStudio Code](https://code.visualstudio.com/docs/python/tutorial-flask-) - How to set up a Python/Flask environment locally.
 
 ---
 
-### Testing
+### TESTING
+
+> In general I stressed the application hiting all the links and simulating navigation as a User:
+
+Browsing and navigating by the index page (Post page or main page)
+
+> For those who want to test the application, I recommend go to Register section, create an app account and interact with the app as a "Collaborator"
 
 > ### HTML
 >
->   * Ran HTML code through [HTML Validator](https://validator.w3.org/) 
+> - Ran HTML code through [HTML Validator](https://validator.w3.org/) 
+> - Browse compatibility check
 >   
 > ### CSS
-> * Ran CSS code through [CSS Validator](https://jigsaw.w3.org/css-validator/)
->   *  No errors found.
+> - Ran CSS code through [CSS Validator](https://jigsaw.w3.org/css-validator/). The errors found comes from the core of bootstrap template, which cannot be changed.
 > 
-> ### Python3
-SSL LOCAL FALSE https://stackoverflow.com/questions/54484890/ssl-handshake-issue-with-pymongo-on-python3
->
-> ### GENERAL (Site Testing on live page)
-> 
->   * Navigation
->     * Clicked Navigation bar Logo/Text and confirmed it returns to Home/Intro.
->     * Clicked About on the navbar and scrolls to correct section.
->     * Clicked Register on the navbar and scrolls to correct section.
->     * Clicked More on the navbar and scrolls to correct section.
->   * Tour Section
->     * Clicked on each tour option and the tour details section opens and scrolls correctly and shows the accurate content and the points marked on maps
->   * Contact section
->     * Clicked Submit button without any form entries. Expected warning popup retuned of "Please fill out this field". Further, tested all required form fields for same.
->     * The modal window with success message appears correctly after the form submission.
->
 > ### RESPONSIVENESS
 >
->   * Application tested on all different sizes by Google DevTools: from 360 x 640 up to 1024 x 1366
->   * Viewed site on above range (including Responsive mode) on : Google Chrome, Edge 
->   * Viewed on physical devices: large phone (414px) | large tablet (768px) | Medium laptop (1366px) | Large Desktop screen (1920px)
-
----
-
-### Code validity
-
-> - HTML - [W3C](https://validator.w3.org/) - 20 Warnings regards embedded icons.
-> - CSS - [W3C](https://jigsaw.w3.org/css-validator/) - CSS Validation
-> - Browse compatibility check
+> - Application tested on all different sizes by Google DevTools: from 360 x 640 up to 1024 x 1366.
+> - Viewed site on above range (including Responsive mode) on : Google Chrome, Edge
+> - Viewed on physical devices: large phone (414px) | large tablet (768px) | Medium laptop (1366px) | Large Desktop screen (1920px)
+> - By the fact it was used on this project a homologated bootstrap template, no changes on building templates caused any harm to the navite responsiveness capability, which means
+that all responsivess capabilities inherited from the "Clean Blog" StartBootstrap template were preserved and checked by navigation tests in different types of devices.
+> 
+> ### PYTHON3 VALIDITY
+>
+> - Readability, code smells, logical meaning and indentation of the code was checked by PEP8 online tool with 100% of approve.
+> - No one  errors were left, which shows a great cohesion of the code.
+> - Based on the performed tests and described on Testing section of this document, no application bugs or exception messages were found or left, ensuring the consistency of the code.
 
 ---
 
@@ -240,19 +227,22 @@ This project has been deployed on Heroku Cloud Plataform on following process:
 
 Github, Gitpod, Git and Heroku
 
+---
+
 ### Credits
 
 > ##### Media
 >
-> - 
+> - Header imagem: It was took from [Unsplash photos](https://unsplash.com/photos/V5vqWC9gyEU) by Volodymyr Hryshchenko.
 
 > ##### Content
 >
-> - The content was extract from the official content web site [CidadeDeSaoPaulo](http://cidadedesaopaulo.com/)
-> - The selection and compound of the tours and the texts was self-made
+> - Most of the content was written by my wife, Bianca Aragone, which has helped hugely checking and creating most of the posts and section "About" definition.
 >
 > ##### Code Snippets
 >
-> - 
+> - Modal html alert message functionality and it launch on screen was took from [Bootstrap](https://getbootstrap.com/). 
 
 ---
+
+SSL LOCAL FALSE https://stackoverflow.com/questions/54484890/ssl-handshake-issue-with-pymongo-on-python3
