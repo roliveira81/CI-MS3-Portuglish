@@ -27,7 +27,7 @@ mongo = PyMongo(app, ssl=True,ssl_cert_reqs='CERT_NONE')
 @app.route("/index")
 def index():
     """
-    Main view. Load all active posts for browse and search
+    Main view. It loads all active posts for browse and search
     """
     # fill the name, title and description dinamically to each page by page header on base template    
     section = { "view": "Portuglish"  ,
@@ -40,7 +40,7 @@ def index():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     """
-    Search feature on main view between the published and active posts 
+    The search feature on the main view between the published and active posts 
     """
     section = { "view": "Portuglish"  ,
                 "title": "The Survival Glossary for Brazilians Abroad"}        
@@ -55,7 +55,7 @@ def search():
 @app.route("/about")
 def about():
     """
-    Static view. It brings the project conception.
+    Static view. It brings the project conception explanation.
     """
     section = { "view": "About"  ,
                 "title": "The Survival Glossary for Brazilians Abroad"}    
@@ -65,7 +65,7 @@ def about():
 @app.route("/create_post", methods=["GET", "POST"])
 def create_post():
     """
-    Feature that provides the form to create new Posts
+    The feature that provides the form to create new Posts
     """
     username = session["user"]
     section = { "view": "New Post",
@@ -93,7 +93,7 @@ def create_post():
 @app.route("/edit_post/<_id>", methods=["GET", "POST"])
 def edit_post(_id):
     """
-    Feature that provides the form to update some post    
+    The feature that provides the form to update some post    
     """
     section = { "view": "Edit Post"  ,
                 "title": "The Survival Glossary for Brazilians Abroad"}        
@@ -142,7 +142,7 @@ def like_post(_id):
 @app.route("/dislike_post/<_id>")
 def dislike_post(_id):
     """
-    Feature to allow users to like posts, storing the negative
+    Feature to allow users to dislike posts, storing the negative
     votes in the DB
     """    
     post = (mongo.db.posts.find_one({"_id": ObjectId(_id)}))
@@ -154,8 +154,7 @@ def dislike_post(_id):
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """
-    Form to allow new users to become a colabarator by 
-    registering themselves
+    Form to allow new users to become a collaborator by registering themselves
     """
     section = { "view": "Be a collaborator"  ,
                 "title": "Help the Brazilian community to better express their ideas"}         
@@ -187,7 +186,7 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """
-    Sign in feature, to allow colaborators to manage their posts
+    Sign in feature, to allow collaborators access the posts manage section
     """
     section = { "view": "Sign In"  ,
                 "title": "Help the Brazilian community to better express their ideas"}        
