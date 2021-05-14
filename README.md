@@ -90,14 +90,21 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 ##### Existing Features
 
 > - Designed with HTML, CSS, JavaScript, Python+Flask, MongoDB.
-> - Search bar with categories
+> - Home page with list of published posts
+> - Search bar for posts
+> - Results page, with options to like, dislike or report entries
 > - About section
 > - New User registration page
 > - Sign-In page
-> - Create a Post page, with edit and delete functions
-> - Results page, with options to like, dislike or report entries
+> - Profile page to allow colaborators to create, edit and delete functions
 > - Reference to poster on each public entry
 > - Footer with social media links
+
+##### Features left to Implement.
+In the future, it would be nice to implement the following features:
+
+- Search posts by category and tags
+- Allow visitors comments 
 
 ### Portuglish Database Model and Schema
 
@@ -164,5 +171,88 @@ Words can do harm, so to keep a safe environment for everyone, content will be m
 > - [Quick Database Diagrams](https://www.quickdatabasediagrams.com/) - I used quick database diagrams to make a digram of my database schema.
 > - [Balsamiq](https://balsamiq.com/) - Balsamiq was used to create Wireframes for the project during the initial planning stage.
 > - [RandomKeyGen](https://randomkeygen.com/) - Keygen Generator for app secret key.  
+
+---
+
+### Resources
+
+> - [Code Institute Course Content](https://courses.codeinstitute.net/) - Main source of fundamental knowledge.
+> - [Stack Overflow](https://stackoverflow.com/) - General resource.
+> - [Bootstrap](https://getbootstrap.com/) - Resource of icons, form and modal elements. 
+> - [CSS-Tricks](https://css-tricks.com/) - General resource.
+> - [w3schools.com](https://w3schools.com.com/) - General resource.
+> - [Am I Responsive](http://ami.responsivedesign.is/) - Responsive website mockup image generator.
+> - [Balsamiq](https://balsamiq.com/wireframes/) - Wireframing design tool.
+
+---
+
+### Testing
+
+> ### HTML
+>
+>   * Ran HTML code through [HTML Validator](https://validator.w3.org/) 
+>   
+> ### CSS
+> * Ran CSS code through [CSS Validator](https://jigsaw.w3.org/css-validator/)
+>   *  No errors found.
+> 
+> ### Python3
+SSL LOCAL FALSE https://stackoverflow.com/questions/54484890/ssl-handshake-issue-with-pymongo-on-python3
+>
+> ### GENERAL (Site Testing on live page)
+> 
+>   * Navigation
+>     * Clicked Navigation bar Logo/Text and confirmed it returns to Home/Intro.
+>     * Clicked About on the navbar and scrolls to correct section.
+>     * Clicked Register on the navbar and scrolls to correct section.
+>     * Clicked More on the navbar and scrolls to correct section.
+>   * Tour Section
+>     * Clicked on each tour option and the tour details section opens and scrolls correctly and shows the accurate content and the points marked on maps
+>   * Contact section
+>     * Clicked Submit button without any form entries. Expected warning popup retuned of "Please fill out this field". Further, tested all required form fields for same.
+>     * The modal window with success message appears correctly after the form submission.
+>
+> ### RESPONSIVENESS
+>
+>   * Application tested on all different sizes by Google DevTools: from 360 x 640 up to 1024 x 1366
+>   * Viewed site on above range (including Responsive mode) on : Google Chrome, Edge 
+>   * Viewed on physical devices: large phone (414px) | large tablet (768px) | Medium laptop (1366px) | Large Desktop screen (1920px)
+
+---
+
+### Code validity
+
+> - HTML - [W3C](https://validator.w3.org/) - 20 Warnings regards embedded icons.
+> - CSS - [W3C](https://jigsaw.w3.org/css-validator/) - CSS Validation
+> - Browse compatibility check
+
+---
+
+### Version Control
+
+> - Used Git for version control.
+
+---
+
+### Deployment
+
+This project has been deployed on Heroku Cloud Plataform on following process:
+
+Github, Gitpod, Git and Heroku
+
+### Credits
+
+> ##### Media
+>
+> - 
+
+> ##### Content
+>
+> - The content was extract from the official content web site [CidadeDeSaoPaulo](http://cidadedesaopaulo.com/)
+> - The selection and compound of the tours and the texts was self-made
+>
+> ##### Code Snippets
+>
+> - 
 
 ---

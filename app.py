@@ -137,8 +137,8 @@ def delete_post(_id):
     Feature to delete posts.
     """
     mongo.db.posts.remove({"_id": ObjectId(_id)})
-    flash("Post Successfully Deleted")
-    return redirect(url_for("profile"))
+    flash("Post Successfully Deleted", category='success')
+    return redirect(url_for("profile", username=session["user"]))
 
 
 @app.route("/like_post/<_id>")
@@ -194,7 +194,7 @@ def register():
         mongo.db.users.insert_one(register)
 
         # put the new user into 'session' cookie
-        session["user"] = request.form.get("name").lower()
+        session["user"] = request.form.get("name")
         session["email"] = request.form.get("email").lower()
         flash("Registration Successful!", category='success')
         return redirect(url_for("profile", username=session["user"]))
@@ -273,4 +273,4 @@ def logout():
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")), debug=True)
+            port=int(os.environ.get("PORT")), debug=False)
